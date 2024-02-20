@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: aquamarine;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:azure;
+  height: 60rem;
+}
+.calculator {
+  width: 400px;
+  border: solid black 1px;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #aaaaaa;
+}
+.screen {
+  border: 1px solid peru;
+  padding: 10px 20px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.calculation {
+  height: 32px;
+  background-color: brown;
+}
+.output {
+  height: 64px;
+  background-color: pink;
+}
+button {
+  width: 81.5px;
+  cursor: pointer;
+}
+.btn {
+  padding: 20px;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-radius: 7px;
+  background-color: #eeeeee;
+}
+#clearBtn {
+  background-color: #ffaaaa;
+}
+#deleteBtn {
+  background-color: #aaaaff;
+}
+.span {
+  width: 173px;
+  margin-bottom: 10px;
+}
+.arithmetic-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.dailpad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
