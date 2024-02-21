@@ -5,6 +5,8 @@
 }
 body {
   background-color: aquamarine;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
 }
 .main {
   display: flex;
@@ -14,7 +16,6 @@ body {
   height: 60rem;
 }
 .calculator {
-  width: 400px;
   border: solid black 1px;
   border-radius: 15px;
   padding: 20px;
@@ -26,14 +27,16 @@ body {
   background-color: #eeeeee;
   border-radius: 5px;
   margin-bottom: 20px;
+  text-align: right;
 }
 .calculation {
-  height: 32px;
-  background-color: brown;
+  min-height: 32px;
+  background-color: yellow;
 }
 .output {
-  height: 64px;
+  min-height: 64px;
   background-color: pink;
+  font-size: 40px;
 }
 button {
   width: 81.5px;
@@ -46,11 +49,20 @@ button {
   border-radius: 7px;
   background-color: #eeeeee;
 }
+button:hover {
+  background-color: skyblue;
+}
 #clearBtn {
   background-color: #ffaaaa;
 }
+#clearBtn:hover {
+  background-color: white;
+}
 #deleteBtn {
   background-color: #aaaaff;
+}
+#deleteBtn:hover {
+  background-color: beige;
 }
 .span {
   width: 173px;
