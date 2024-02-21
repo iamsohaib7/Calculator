@@ -16,6 +16,7 @@ body {
   height: 60rem;
 }
 .calculator {
+  width: 400px;
   border: solid black 1px;
   border-radius: 15px;
   padding: 20px;
@@ -28,10 +29,6 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
   text-align: right;
-}
-.calculation {
-  min-height: 32px;
-  background-color: yellow;
 }
 .output {
   min-height: 64px;

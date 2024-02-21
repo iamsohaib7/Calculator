@@ -24,53 +24,85 @@ for (let i = 0; i < 16; i++) {
   btn.dataset.key = keys[i];
   dailpad.appendChild(btn);
 }
-let firstOperand = 0;
-let secondOperand = 0;
-let calculation = 0;
-let operator = null;
+let firstOperand = "";
+let secondOperand = "";
+let operator = "";
 function appendNumber(operand) {
-  switch (operand) {
-    case "1":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "2":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "3":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "4":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "5":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "6":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "7":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "8":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "9":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-    case "0":
-      firstOperand = firstOperand * 10 + parseInt(operand);
-      break;
-  }
-  console.log(firstOperand);
+  firstOperand = firstOperand.concat(operand);
 }
-// window.addEventListener("keydown", function (e) {
-//   const button = this.document.querySelector(`button[data-key="${e.key}"]`);
-//   console.log(button);
-// });
+add = (a, b) => {
+  return a + b;
+};
+subtract = (a, b) => {
+  return a - b;
+};
+multiply = (a, b) => {
+  return a * b;
+};
+divide = (a, b) => {
+  return a / b;
+};
+function operate(operator, firstOperand, secondOperand) {
+  let a = Number(firstOperand);
+  let b = Number(secondOperand);
+  switch (operator) {
+    case "+":
+      return add(a, b).toString();
+      break;
+    case "-":
+      return subtract(a, b).toString();
+      break;
+    case "x":
+      return multiply(a, b).toString();
+      break;
+    case "/":
+      if (secondOperand === "0") {
+        alert("Number can not be divided by 0");
+        return firstOperand;
+      } else {
+        return divide(a, b).toString();
+      }
+      break;
+    default:
+      return secondOperand;
+  }
+}
+function clear() {
+  firstOperand = "";
+  secondOperand = "";
+  operator = "";
+}
+function erase() {
+  firstOperand = firstOperand.slice(0, -1);
+}
+window.addEventListener("keydown", function (e) {
+  const button = this.document.querySelector(`button[data-key="${e.key}"]`);
+  console.log(button);
+});
 const btn = document.querySelectorAll("button");
 btn.forEach((e) => {
   e.addEventListener("click", (ev) => {
-    appendNumber(ev.target.textContent);
-    document.querySelector(".output").textContent = firstOperand;
+    const text = ev.target.textContent;
+    console.log(`Text Clicked: ${text}`);
+    if (text === "clear") {
+      clear();
+    } else if (text === "delete" && firstOperand !== "") {
+      erase();
+    } else if (text >= "0" && text <= "9") {
+      appendNumber(text);
+    } else {
+      firstOperand = operate(operator, secondOperand, firstOperand);
+      secondOperand = firstOperand;
+      firstOperand = "";
+      operator = text;
+    }
+    console.log(`first operand: ${firstOperand}, second operand: ${secondOperand}`);
+    if (secondOperand !== "") {
+      document.querySelector(".output").textContent = secondOperand;
+    } else {
+      document.querySelector(".output").textContent =
+        firstOperand === "" ? "0" : firstOperand;
+    }
+    // if (secondOperand !== "") firstOperand = "";
   });
 });
